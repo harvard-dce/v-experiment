@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/jimkang/v-experiment",
   "devDependencies": {
+    "babelify": "^6.3.0",
     "tape": "^3.0.3"
   },
   "dependencies": {

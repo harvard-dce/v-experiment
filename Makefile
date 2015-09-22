@@ -1,5 +1,5 @@
 run:
-	wzrd index.js -- -d
+	wzrd index.js -- -d -t babelify
 
 test:
 	node tests/basictests.js
