@@ -1,3 +1,4 @@
+var videojs = require('video.js');
 var renderVideo = require('./render-video');
 
 function videoRendered() {
@@ -6,7 +7,11 @@ function videoRendered() {
 }
 
 function videoRendered2() {
-  
+  var player = this;
+  // player.controlBar.progressControl = new videojs.ProgressControl(player);
+  var PlayProgressBar = videojs.getComponent('PlayProgressBar');
+  var playProgressBar = new PlayProgressBar(player);
+  player.addChild(playProgressBar);
 }
 
 renderVideo(
