@@ -1,17 +1,20 @@
 var videojs = require('video.js');
 var renderVideo = require('./render-video');
 
+var videojs = require('video.js');
+var renderVideo = require('./render-video');
+
 function videoRendered() {
   var player = this;
   // player.play();
-  player.addChild('PlayProgressBar');
 }
 
 function videoRendered2() {
   var player = this;
   // player.controlBar.progressControl = new videojs.ProgressControl(player);
-  // var PlayProgressBar = videojs.getComponent('PlayProgressBar');
-  // var playProgressBar = new PlayProgressBar(player);
+  var PlayProgressBar = videojs.getComponent('PlayProgressBar');
+  var playProgressBar = new PlayProgressBar(player);
+  player.addChild(playProgressBar);
 }
 
 renderVideo(
@@ -29,3 +32,4 @@ renderVideo(
 //   },
 //   videoRendered2
 // );
+
