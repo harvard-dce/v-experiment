@@ -10,6 +10,7 @@ function renderVideo(opts, done) {
   video.id = id;
   video.src = url;
   video.type = 'video/mp4';
+  video.classList.add('vjs-default-skin');
   document.body.appendChild(video);
 
   var videojsOpts = {
@@ -32,7 +33,7 @@ function renderVideo(opts, done) {
     loop: false,
     width: 784,
     height: 441,
-    controlBar: false
+    // controlBar: false
   };
 
   videojs(video, videojsOpts, done);

@@ -4,14 +4,14 @@ var renderVideo = require('./render-video');
 function videoRendered() {
   var player = this;
   // player.play();
+  player.addChild('PlayProgressBar');
 }
 
 function videoRendered2() {
   var player = this;
   // player.controlBar.progressControl = new videojs.ProgressControl(player);
-  var PlayProgressBar = videojs.getComponent('PlayProgressBar');
-  var playProgressBar = new PlayProgressBar(player);
-  player.addChild(playProgressBar);
+  // var PlayProgressBar = videojs.getComponent('PlayProgressBar');
+  // var playProgressBar = new PlayProgressBar(player);
 }
 
 renderVideo(
@@ -22,10 +22,10 @@ renderVideo(
   videoRendered
 );
 
-renderVideo(
-  {
-    url: 'https://da4w749qm6awt.cloudfront.net/engage-player/83ebde9d-0812-4071-8fb7-a97c1472ceb9/d7086069-ec1f-4862-a75f-822cbffdee5f/presentation_trimmed.mp4',
-    id: 'presentation-video'
-  },
-  videoRendered2
-);
+// renderVideo(
+//   {
+//     url: 'https://da4w749qm6awt.cloudfront.net/engage-player/83ebde9d-0812-4071-8fb7-a97c1472ceb9/d7086069-ec1f-4862-a75f-822cbffdee5f/presentation_trimmed.mp4',
+//     id: 'presentation-video'
+//   },
+//   videoRendered2
+// );
