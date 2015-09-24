@@ -4,15 +4,16 @@ import ProgressControl from '../video.js/src/js/control-bar/progress-control/pro
 function renderVideo(opts, done) {
   var {
     id,
-    url    
+    url,
+    parent
   } = opts;
 
   var video = document.createElement('video');
   video.id = id;
   video.src = url;
   video.type = 'video/mp4';
-  video.classList.add('vjs-default-skin');
-  document.body.appendChild(video);
+  parent.classList.add('vjs-default-skin');
+  parent.appendChild(video);
 
   var videojsOpts = {
     controls: {
@@ -34,14 +35,23 @@ function renderVideo(opts, done) {
     loop: false,
     width: 784,
     height: 441,
-    // controlBar: false
+    controlBar: false
   };
 
-  // videojs(video, videojsOpts, done);
-  var progressControl = new ProgressControl(createMockPlayer());
-  var pcEl = progressControl.el();
-  pcEl.style.height = 64;
-  video.appendChild(pcEl);
+  videojs(video, videojsOpts, setUpControls);
+
+  function setUpControls() {
+    var player = this;
+    var progressControl = new ProgressControl(player);
+    var pcEl = progressControl.el();
+    pcEl.style.top = 600;
+    parent.appendChild(pcEl);
+    done(player);
+  }
+  // var progressControl = new ProgressControl(createMockPlayer());
+  // var pcEl = progressControl.el();
+  // pcEl.style.height = 64;
+  // video.appendChild(pcEl);
 
 }
 
