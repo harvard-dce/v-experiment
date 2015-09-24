@@ -5,7 +5,8 @@ function renderVideo(opts, done) {
   var {
     id,
     url,
-    parent
+    parent,
+    progressControlTop
   } = opts;
 
   var video = document.createElement('video');
@@ -44,7 +45,7 @@ function renderVideo(opts, done) {
     var player = this;
     var progressControl = new ProgressControl(player);
     var pcEl = progressControl.el();
-    pcEl.style.top = 600;
+    pcEl.style.top = progressControlTop;
     parent.appendChild(pcEl);
     done(player);
   }

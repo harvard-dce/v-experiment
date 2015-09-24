@@ -1012,3 +1012,11 @@ body.vjs-full-window {
 /* -----------------------------------------------------------------------------
 The original source of this file lives at
 https://github.com/videojs/video.js/blob/master/src/css/video-js.less */
+
+#video-root-1 {
+  top: 0px;
+}
+
+#video-root-2 {
+  top: 500px;
+}
