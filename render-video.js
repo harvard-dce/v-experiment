@@ -12,7 +12,8 @@ function renderVideo(opts, done) {
   video.type = 'video/mp4';
   // parent.classList.add('vjs-default-skin');
   parent.appendChild(video);
-
+  return video;
+  
   // var videojsOpts = {
   //   controls: {
   //     playToggle: {},
