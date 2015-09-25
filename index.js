@@ -19,11 +19,23 @@ var video2 = renderVideo(
   }
 );
 
+var videos = [
+  video1,
+  video2
+];
+
 d3.select('#controls-container').append('button')
   .text('Play')
   .on('click', playVideos);
 
+d3.select('#controls-container').append('button')
+  .text('Stop')
+  .on('click', stopVideos);
+
 function playVideos() {
-  video1.play();
-  video2.play();
+  videos.forEach(video => video.play());
+}
+
+function stopVideos() {
+ videos.forEach(video => video.pause());
 }
