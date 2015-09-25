@@ -1,5 +1,6 @@
 var renderVideo = require('./render-video');
 var d3 = require('d3-selection');
+var slideways = require('slideways');
 
 var video1 = renderVideo(
   {
@@ -24,11 +25,13 @@ var videos = [
   video2
 ];
 
-d3.select('#controls-container').append('button')
+var controls = d3.select('#controls-container')
+
+controls.append('button')
   .text('Play')
   .on('click', playVideos);
 
-d3.select('#controls-container').append('button')
+controls.append('button')
   .text('Stop')
   .on('click', stopVideos);
 
@@ -39,3 +42,31 @@ function playVideos() {
 function stopVideos() {
  videos.forEach(video => video.pause());
 }
+
+function setVideosCurrentTime(time) {  
+  videos.forEach(video => video.currentTime = time);
+}
+
+function setVideosCurrentTimeByPercent(percent) {
+  videos.forEach(setVideoCurrentTimeByPercent);
+
+  function setVideoCurrentTimeByPercent(video) {
+    video.currentTime = getTimeForPercent(percent, video.duration);
+  }
+}
+
+function getTimeForPercent(percent, duration) {
+  var time = 0;
+  if (duration > 0) {
+    time = percent/100.0 * duration;
+  }
+  return time;
+}
+
+var slider = slideways({ min: 0, max: 100, snap: 1, init: 0 });
+slider.appendTo('#controls-container');
+
+slider.on('value', function (value) {
+  console.log(value);
+  setVideosCurrentTimeByPercent(value);
+});

@@ -27,8 +27,9 @@
     "d3-selection": "^0.4.8",
     "idmaker": "^0.1.1",
     "lodash": "^3.6.0",
+    "openmusic-slider": "^2.1.0",
+    "slideways": "^1.0.0",
     "smash": "0.0.14",
-    "uglify-js": "^2.4.17",
-    "video.js": "^4.12.15"
+    "uglify-js": "^2.4.17"
   }
 }
